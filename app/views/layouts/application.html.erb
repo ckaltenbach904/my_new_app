@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nameofapp</title>
+    <title>my_new_app</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  <nav>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", simple_pages_about_path %></li>
+    <li><%= link_to "Contact", simple_pages_contact_path %></li>
+  </ul>
+  </nav>
     <%= yield %>
+
+  <footer>
+    &copy; 2018 Bike Berlin
+  </footer>  
   </body>
 </html>
