@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ .product-item {
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
