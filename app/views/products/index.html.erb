@@ -5,11 +5,23 @@
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-md-4 product-item">
-        <%= image_tag("https://www.fahrrad.de/dw/image/v2/BCZF_PRD/on/demandware.static/-/Sites-master-catalog-bikester/default/dw95ab5e46/images/227/478/874722/gt-bicycles-force-carbon-pro-gloss-cyan-gt-yellow-deep-navy-2.jpg?sw=595,", class: "img-fluid") %>
-        <a href="#"><%= product.name %></a>
+        <% if product.image_url %>
+          <%= image_tag(product.image_url, class: "img-fluid") %>
+        <% end %>
+        <%= link_to product.name, product_path(product) %>
         <p><%= product.description %></p>
-        <strong>$ 42</strong>
-        
+
+        <% if product.price %>
+          <strong>€<%= product.price %></strong>
+        <% end %>
+
+        <% if product.colour %>
+
+          <p>
+            <strong>Colour: <%= product.colour %></strong>
+          </p>
+        <% end %>
+
       </div><!-- /col -->
     <% end %>
   </div>  
