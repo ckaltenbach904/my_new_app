@@ -9,4 +9,9 @@ class SimplePagesController < ApplicationController
     flash[:notice] = "Your query has been received!"
     redirect_to root_path
   end
+  
+  def landing_page
+    @featured_product = Product.first
+  end
+
 end
