@@ -1,0 +1,8 @@
+<div class="carousel-item <%= " active" if product == @featured_products.first %>">
+<img class="product-image-slide d-block w-100" src="<%= product.image_url %>" alt="First slide">
+<div class="carousel-caption d-xs-block" style="background: rgba(0, 0, 0, 0.5);">
+  <h1><%= link_to product.name, product %></h1>
+  <p><%= product.description %></p>
+  <strong>$ <%= product.price %></strong>
+</div>
+</div>

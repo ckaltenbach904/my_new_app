@@ -14,15 +14,8 @@
  <div class="carousel-inner">
  <% @featured_products.each do |product| %>
   
-  
-  <div class="carousel-item <%= " active" if product == @featured_products.first %>">
-    <img class="d-block w-100" src="<%= product.image_url %>" alt="First slide">
-    <div class="carousel-caption d-xs-block">
-      <h1><%= link_to product.name, product %></h1>
-      <p><%= product.description %></p>
-      <strong>$ <%= product.price %></strong>
-    </div>
-  </div>
+  <%= render partial: "product", locals: {product: product} %>
+ 
 
   <% end %>  
   </div>
