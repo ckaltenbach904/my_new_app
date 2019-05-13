@@ -1,4 +1,38 @@
 <h2>Featured Product:</h2>
-<% if @featured_product %>
-    <%= @featured_product.name %>
-<% end %> 
+<% if @featured_products %>
+
+ <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+ <ol class="carousel-indicators">
+<% @featured_products.each_with_index do |product, index| %>
+  
+    <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+  
+<% end %>
+</ol>
+
+ <div class="carousel-inner">
+ <% @featured_products.each do |product| %>
+  
+  
+  <div class="carousel-item <%= " active" if product == @featured_products.first %>">
+    <img class="d-block w-100" src="<%= product.image_url %>" alt="First slide">
+    <div class="carousel-caption d-xs-block">
+      <h1><%= link_to product.name, product %></h1>
+      <p><%= product.description %></p>
+      <strong>$ <%= product.price %></strong>
+    </div>
+  </div>
+
+  <% end %>  
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+  </a>
+</div>  
+<% end %>
