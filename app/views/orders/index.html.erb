@@ -2,7 +2,7 @@
     <h2>Current Orders</h2>
 </header> <!-- end header -->
 
-<div class="row">
+<div class="row order-table">
     <% @orders.each do |order| %>
         <% if order.product.present? %>
           <div class="col-sm">
