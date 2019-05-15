@@ -1,1 +1,17 @@
-<h2>Home</h2>
+<header class="orders-header">
+    <h3>Current Orders</h3>
+</header> <!-- end header -->
+
+<div class="row">
+<% @orders.each do |order| %>
+    <div class="col-12 m-2 orders-col">
+        <%= image_tag("bike.jpg", class: "orders-image") %>
+    <h6>
+        Order # <%= order.id %>:
+    <%= link_to order.product.name, order %>
+    </h6>
+    <p><%= order.product.description %></p>
+    <strong><%= number_to_currency(order.product.price, unit: "€") %></strong>
+    </div><!-- /col -->
+<% end %>
+</div>
