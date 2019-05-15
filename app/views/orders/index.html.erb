@@ -1,17 +1,21 @@
 <header class="orders-header">
-    <h3>Current Orders</h3>
+    <h2>Current Orders</h2>
 </header> <!-- end header -->
 
 <div class="row">
-<% @orders.each do |order| %>
-    <div class="col-12 m-2 orders-col">
-        <%= image_tag("bike.jpg", class: "orders-image") %>
-    <h6>
-        Order # <%= order.id %>:
-    <%= link_to order.product.name, order %>
-    </h6>
-    <p><%= order.product.description %></p>
-    <strong><%= number_to_currency(order.product.price, unit: "€") %></strong>
-    </div><!-- /col -->
-<% end %>
+    <% @orders.each do |order| %>
+        <% if order.product.present? %>
+          <div class="col-sm">
+            <h4><strong>Order # <%= order.id %></strong></h4>
+            <h5><%= link_to order.product.name, order %></h5>
+            <%= image_tag(order.product.image_url, class: "img-fluid order-img") %>
+            <div class="order-description">
+            <p><%= order.product.description if order.product %></p>
+            </div>
+            <div class="order-price">
+            <strong>$ <%= order.product.price if order.product %></strong>
+            </div>
+          </div><!-- /col -->
+        <% end %>
+    <% end %>
 </div>
