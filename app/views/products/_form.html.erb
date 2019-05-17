@@ -10,36 +10,35 @@
       </ul>
     </div>
   <% end %>
+  <form>
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="form-group">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+    <div class="form-group">
+      <%= form.label :colour %><br>
+      <%= form.text_field :colour, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :colour %><br>
-    <%= form.text_field :colour %>
-  </div>
+    <div class="form-group">
+    <%= form.label :price %><br>
+    <%= form.number_field :price, class:"form-control", step: :any %>
+    </div> 
 
-  <div class="field">
-  <%= form.label :price %><br>
-  <%= form.number_field :price, step: :any %>
-  </div> 
+    <div class="actions">
+      <%= form.submit class: "btn btn-success" %>
+    </div>
+  </form>
 
-  <div class="actions">
-    <%= form.submit class: "btn btn-success" %>
-  </div>
-
-
-
-<% end %>
+  <% end %>
