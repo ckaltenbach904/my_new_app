@@ -13,7 +13,7 @@
             <p><%= order.product.description if order.product %></p>
             </div>
             <div class="order-price">
-            <strong>$ <%= order.product.price if order.product %></strong>
+            <strong>$ <%= order.total if order.product %></strong>
             </div>
           </div><!-- /col -->
         <% end %>
