@@ -40,15 +40,25 @@
           <li><%= link_to "Contact", simple_pages_contact_path %></li>
           <li><%= link_to "Products",products_path %></li>
         </ul>
+
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-        <%= form_with(url: products_path, method: 'get', class: "form-inline", local: true) do |form| %>
-          <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
-          <%= form.submit 'Search', class: "btn btn-info", style:
-          "margin-left: 10px;" %>
-        <% end %>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+          </li>
+          <% end %>
+          <li class="nav-item">
+            <%= form_with(url: products_path, method: 'get', class: "form-inline", local: true) do |form| %>
+            <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
+            <%= form.submit 'Search', class: "btn btn-info", style:
+            "margin-left: 10px;" %>
+          <% end %>
         </li>
-      </li>
+       </ul>
 
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -56,10 +66,12 @@
   
 
   <%if !flash[:notice].blank? %>
-  <div class="alert alert-success">
-<%= flash[:notice]%>
-  </div>
-<% end %>
+    <div class="alert alert-success">
+      <%= flash[:notice]%>
+    </div>
+  <% end %>
+
+  <p class="alert"><%= alert %></p>
 
 
   <div class="container">
