@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+
+# in config/locales/en.yml
+en:
+  unauthorized:
+    default: "Default error message text."
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."

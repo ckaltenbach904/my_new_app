@@ -16,74 +16,75 @@
   </head>
 
   <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Bike Berlin</a>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bike Berlin</a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", simple_pages_about_path %></li>
+            <li><%= link_to "Contact", simple_pages_contact_path %></li>
+            <li><%= link_to "Products",products_path %></li>
+          </ul>
+
+          <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+            </li>
+            <% end %>
+            <li class="nav-item">
+              <%= form_with(url: products_path, method: 'get', class: "form-inline", local: true) do |form| %>
+              <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
+              <%= form.submit 'Search', class: "btn btn-info", style:
+              "margin-left: 10px;" %>
+            <% end %>
+          </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", simple_pages_about_path %></li>
-          <li><%= link_to "Contact", simple_pages_contact_path %></li>
-          <li><%= link_to "Products",products_path %></li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to('Login', new_user_session_path, class: "nav-link") %>
-          </li>
-          <% end %>
-          <li class="nav-item">
-            <%= form_with(url: products_path, method: 'get', class: "form-inline", local: true) do |form| %>
-            <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
-            <%= form.submit 'Search', class: "btn btn-info", style:
-            "margin-left: 10px;" %>
-          <% end %>
-        </li>
-       </ul>
-
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   
 
-  <%if !flash[:notice].blank? %>
-    <div class="alert alert-success">
-      <%= flash[:notice]%>
+    <div class="container-notices">
+      <% if notice %>
+        <p id="notice" class="alert alert-info" role="alert"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p id="alert" class="alert alert-danger" role="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
     </div>
-  <% end %>
-
-  <p class="alert"><%= alert %></p>
 
 
-  <div class="container">
-    <%= yield %>
-  </div>
-  
+
+
 
 
     <footer>
       <strong>
-      Copyright © 2018
-      <a href="#"> Bike Berlin</a>
+        Copyright © 2018
+        <a href="#"> Bike Berlin</a>
       </strong>
       All rights reserved.
     </footer>  
