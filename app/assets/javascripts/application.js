@@ -17,5 +17,5 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-    $(".alert").delay(10000).fadeOut("ease-out");
+    $(".alert").delay(10000).fadeOut("linear");
 });

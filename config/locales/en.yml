@@ -38,6 +38,6 @@ en:
     default: "Default error message text."
     manage:
       all: "Not authorized to %{action} %{subject}."
-      user: "Not allowed to manage other user accounts."
+      user: "Not allowed to manage other user accounts"
     update:
-      project: "Not allowed to update this project."
+      project: "Not allowed to update this project"
