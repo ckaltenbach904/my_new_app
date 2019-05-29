@@ -15,6 +15,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery.raty.js
+//= require jquery.elevateZoom.min.js
 
 $(document).on('turbolinks:load', function(){
     $(".alert").delay(10000).fadeOut("linear");
