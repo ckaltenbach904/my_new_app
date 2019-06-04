@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
+  devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }, controllers: { registrations: "user_registrations" }
   resources :users
   resources :products do
     resources :comments
