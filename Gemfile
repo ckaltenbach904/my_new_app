@@ -67,3 +67,5 @@ gem "jquery-rails", "~> 4.3"
 
 #Gem Devise for user authentication
 gem 'devise'
+
+gem "activeadmin", "~> 2.0"
