@@ -1,23 +1,20 @@
-<h1>Listing products</h1>
+<h1>Listing Products</h1>
 
 <%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-right' %>
 <br>
 
-  <div class="row">
+  <div class="row product-listing">
     <% @products.each do |product| %>
       <div class="col-sm product-item">
         <% if product.image_url %>
           <%= image_tag(product.image_url, class: "img-fluid") %>
         <% end %>
         <%= link_to product.name, product_path(product) %>
-        <p><%= product.description %></p>
-
+          <p><%= product.description %></p>
         <% if product.price %>
           <strong>€<%= product.price %></strong>
         <% end %>
-
         <% if product.colour %>
-
           <p>
             <strong>Colour: <%= product.colour %></strong>
           </p>

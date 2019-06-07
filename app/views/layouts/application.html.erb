@@ -31,9 +31,6 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-          </ul>
-
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", simple_pages_about_path %></li>
@@ -41,7 +38,7 @@
             <li><%= link_to "Products",products_path %></li>
           </ul>
 
-          <ul class="navbar-nav mr-auto">
+          <ul class="nav navbar-nav navbar-right"> 
             <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
@@ -51,15 +48,14 @@
               <%= link_to('Login', new_user_session_path, class: "nav-link") %>
             </li>
             <% end %>
+          
             <li class="nav-item">
               <%= form_with(url: products_path, method: 'get', class: "form-inline", local: true) do |form| %>
               <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control" %>
-              <%= form.submit 'Search', class: "btn btn-info", style:
-              "margin-left: 10px;" %>
+              <%= form.submit 'Search', class: "btn btn-info", style:"margin-left: 10px;" %>
             <% end %>
-          </li>
-        </ul>
-
+            </li>
+          </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -67,20 +63,15 @@
 
     <div class="container-notices">
       <div class="container">
-
       <% if notice %>
         <p id="notice" class="alert alert-info" role="alert"><%= notice %></p>
       <% end %>
-
       <% if alert %>
         <p id="alert" class="alert alert-danger" role="alert"><%= alert %></p>
       <% end %>
-
       <%= yield %>
       </div>
     </div>
-
-
 
     <footer>
       <strong>
