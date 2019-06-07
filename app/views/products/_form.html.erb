@@ -11,33 +11,37 @@
     </div>
   <% end %>
   <form>
-    <div class="form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class:"form-control"%>
-    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class:"form-control"%>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :description %>
-      <%= form.text_area :description, class:"form-control" %>
-    </div>
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class:"form-control", row: "5x5" %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :image_url %>
-      <%= form.text_field :image_url, class:"form-control" %>
-    </div>
+        <div class="form-group">
+          <%= form.label :image_url %>
+          <%= form.text_field :image_url, class:"form-control" %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :colour %><br>
-      <%= form.text_field :colour, class:"form-control" %>
-    </div>
+        <div class="form-group">
+          <%= form.label :colour %><br>
+          <%= form.text_field :colour, class:"form-control" %>
+        </div>
 
-    <div class="form-group">
-    <%= form.label :price %><br>
-    <%= form.number_field :price, class:"form-control", step: :any %>
-    </div> 
+        <div class="form-group">
+        <%= form.label :price %><br>
+        <%= form.number_field :price, class:"form-control", step: :any %>
+        </div> 
 
-    <div class="actions">
-      <%= form.submit class: "btn btn-success" %>
+        <div class="actions">
+          <%= form.submit class: "btn btn-success" %>
+        </div>
+      </div>
     </div>
   </form>
 

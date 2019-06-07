@@ -1,8 +1,11 @@
-w<h1>Listing products</h1>
+<h1>Listing products</h1>
+
+<%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-right' %>
+<br>
 
   <div class="row">
     <% @products.each do |product| %>
-      <div class="col-md-4 product-item">
+      <div class="col-sm product-item">
         <% if product.image_url %>
           <%= image_tag(product.image_url, class: "img-fluid") %>
         <% end %>
@@ -26,6 +29,8 @@ w<h1>Listing products</h1>
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= will_paginate @products %>
+
+
 
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }, controllers: { registrations: "user_registrations" }
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
   ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :users
