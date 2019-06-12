@@ -4,11 +4,16 @@ describe User do
     context "when user is present" do
 
         it "is valid with email and password" do
-            expect(User.new(email: "j.smith@example.com", password: "foobar")).to be_valid
+            expect(FactoryBot.build(:user)).to be_valid
         end
 
         it "is not valid without email" do
-            expect(User.new(password: "foobar")).to_not be_valid
+            expect(FactoryBot.build(:user, email: nil)).to_not be_valid
+        end
+
+        it "should not validate users with an invalid email address" do
+            @user = FactoryBot.build(:user, email: "not_an_email")
+            expect(@user).to_not be_valid
         end
 
     end
