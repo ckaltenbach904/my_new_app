@@ -74,3 +74,5 @@ gem "jquery-rails", "~> 4.3"
 gem 'devise'
 
 gem "activeadmin", "~> 2.0"
+
+gem 'stripe'
