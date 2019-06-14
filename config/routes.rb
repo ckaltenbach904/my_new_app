@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :users
+  resources :payments
+  post "payments/create"
   resources :products do
     resources :comments
   end  
