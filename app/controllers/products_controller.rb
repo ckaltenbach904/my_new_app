@@ -19,8 +19,10 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @comments = @product.comments.order("created_at DESC")
+    logger.info(@comments)
     @comments = @product.comments.paginate(page: params[:page], per_page: 3).order("created_at DESC")
-    debugger
+    logger.error("THERE HAS BEEN AN ERROR!!11!")
+    # debugger
   end
 
   # GET /products/new
