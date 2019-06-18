@@ -28,7 +28,7 @@
           <%= @product.colour %>
         </p>
 
-        <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+        <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
       
         <%= form_with(url: "/payments/create") do |form| %>
           <%= form.hidden_field(:product_id, value: @product.id) %>
