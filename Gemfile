@@ -76,3 +76,5 @@ gem 'devise'
 gem "activeadmin", "~> 2.0"
 
 gem 'stripe'
+
+gem "brakeman"

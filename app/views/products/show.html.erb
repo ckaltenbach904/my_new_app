@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 img">
-        <%= image_tag @product.image_url, class: "img-fluid img-zoom" %>
+        <%= image_tag @product.image_url, width: "350", class: "img-fluid img-zoom", data_zoom_image: @product.image_url %>
       </div>  
 
       <div class="col-sm-6 product-info"

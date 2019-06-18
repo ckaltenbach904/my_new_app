@@ -21,3 +21,4 @@
 $(document).on('turbolinks:load', function(){
     $(".alert").delay(10000).fadeOut("linear");
 });
+

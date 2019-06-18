@@ -33,15 +33,15 @@ class PaymentsController < ApplicationController
             err = body[:error]
             logger.error("Error:  #{err}")
             flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
-          # The card has been declined
+            # The card has been declined
         rescue Stripe::InvalidRequestError => e
             # The card has been declined
             logger.error("Stripe Invalid Request Error Raised!")
             body = e.json_body
             err = body[:error]
             logger.error("Error:  #{err}")
-            flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
-        # The card has been declined
+            flash[:error] = "Unfortunately, there was an error processing payment: #{err[:message]}"
+            # The card has been declined
       end
     end
 end
