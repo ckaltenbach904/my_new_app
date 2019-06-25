@@ -78,3 +78,5 @@ gem "activeadmin", "~> 2.0"
 gem 'stripe'
 
 gem "brakeman"
+
+gem "dalli", "~> 2.7"

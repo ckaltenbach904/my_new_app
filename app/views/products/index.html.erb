@@ -1,3 +1,4 @@
+<% cache(cache_key_for_products) do %>
 <h1>Listing Products</h1>
 
 <%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-right' %>
@@ -5,6 +6,7 @@
 
   <div class="row product-listing">
     <% @products.each do |product| %>
+      <% cache product do %>
       <div class="col-sm product-item">
         <% if product.image_url %>
           <%= image_tag(product.image_url, class: "img-fluid") %>
@@ -21,13 +23,12 @@
         <% end %>
 
       </div><!-- /col -->
+      <% end %>
     <% end %>
   </div>  
 
 <br>
-
 <%= will_paginate @products %>
-
-
+<% end %>
 
 
