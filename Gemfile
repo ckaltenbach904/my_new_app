@@ -80,3 +80,7 @@ gem 'stripe'
 gem "brakeman"
 
 gem "dalli", "~> 2.7"
+
+gem 'redis-rails'
+
+gem "newrelic_rpm", "~> 6.5"

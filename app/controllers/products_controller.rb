@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    $redis.sadd("current_user.id#{current_user.first_name}_users", current_user.id)
     if params[:q]
       search_term = params[:q]
       @products = Product.search(search_term)
