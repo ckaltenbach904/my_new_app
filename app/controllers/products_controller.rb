@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    $redis.sadd("current_user.id#{current_user.first_name}_users", current_user.id)
+  
     if params[:q]
       search_term = params[:q]
       @products = Product.search(search_term)
@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @view_count = $redis.incr("products_#{@product.id}_views")
+    puts @view_count
     @comments = @product.comments.order("created_at DESC")
     logger.info(@comments)
     @comments = @product.comments.paginate(page: params[:page], per_page: 3).order("created_at DESC")
