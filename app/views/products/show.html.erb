@@ -4,7 +4,7 @@
   <h1>Product Info</h1>
 
   <div class="container">
-    <div class="row">
+    <div class="row" data-product-id="<%= @product.id %>">
       <div class="col-sm-6 img">
         <%= image_tag @product.image_url, width: "350", class: "img-fluid img-zoom", data_zoom_image: @product.image_url %>
       </div>  
