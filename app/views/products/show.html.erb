@@ -1,4 +1,4 @@
-<% cache @product do %>
+<% cache(cache_key_for_product) do %>
 
 <section class="container-fluid"
   <h1>Product Info</h1>
@@ -38,7 +38,8 @@
         <% end %>
 
       <%= render 'new_comment' %>
-      <%= render 'comments' %>
+      <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+      <%= render'comments' %>
       <%= will_paginate @comments %>
 
       </div>
