@@ -6,6 +6,6 @@ module ProductsHelper
     end
 
     def cache_key_for_product
-        "products/#{@product.id}-#{@product.updated_at}-#{@product.comments.count}"
+        "products/#{@product.id}-#{@product.updated_at}-#{@product.comments.count}-#{signed_in?}"
     end
 end
