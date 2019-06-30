@@ -21,5 +21,14 @@ describe Comment do
             expect(Comment.new(product: product, user: user, body: "Lorem Ipsum", rating: 4)).to be_valid
         end
 
+        it "is not valid without body" do
+            expect(Comment.new(product: product, user: user, rating: 5)).to_not be_valid
+        end
+
+        it "is not valid with a non-integer rating" do
+            expect(
+                Comment.new(product: product, body: "Lorem Ipsum", user: user, rating: 4.5)
+            ).to_not be_valid
+        end
     end
 end

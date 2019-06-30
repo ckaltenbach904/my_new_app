@@ -16,5 +16,23 @@ describe Product do
         it "fails to validate" do
             expect(Product.new).to_not be_valid
         end
+        it "is not valid without a name" do
+            expect(Product.new(colour:"magenta", price: 4, image_url: "bike.jpg", description: "lorem ipsum"))
+        end
+        it "is not valid without a description" do
+            expect(Product.new(name: "xyz", colour:"magenta", price: 4, image_url: "bike.jpg"))
+        end
+        it "is not valid without an image" do
+            expect(Product.new(name: "xyz", colour:"magenta", price: 4, description: "lorem ipsum"))
+        end
+        it "is not valid without a colour" do
+            expect(Product.new(name: "xyz", image_url: "bike.jpg", price: 4, description: "lorem ipsum"))
+        end
+        it "is not valid without a price" do
+            expect(Product.new(name: "xyz", image_url: "bike.jpg", colour: "blue", description: "lorem ipsum"))
+        end
+        it "is not valid with a non-numerical price" do
+            expect(Product.new(name: "xyz", image_url: "bike.jpg", price: "ten", colour: "blue", description: "lorem ipsum"))
+        end
     end
 end
