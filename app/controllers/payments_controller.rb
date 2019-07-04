@@ -20,11 +20,13 @@ class PaymentsController < ApplicationController
           )
           logger.info("Charge paid: #{charge.paid}")
           if charge.paid
-            Order.create(
+            order = Order.create(
                 product_id: @product.id,
                 user_id: @user.id,
                 total: @product.price_in_cents
             )
+
+            UserMailer.payment_received(order).deliver
           end
         rescue Stripe::CardError => e
             # The card has been declined

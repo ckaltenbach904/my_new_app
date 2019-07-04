@@ -65,78 +65,78 @@ describe ProductsController, type: :controller do
     end
 
     describe "POST #create" do
-    context 'when a user is logged in' do
-        before do
-            sign_in @admin_user
-        end
-
-        context "with valid attributes" do
-            it "should create a new product" do
-                old_count = Product.count
-                post :create, params: {
-                    product: {
-                        name: "xyz",
-                        description: "lorem ipsum",
-                        image_url: "bike.jpg",
-                        colour: "magenta",
-                        price: 500
-                    }
-                }
-                new_count = Product.count
-                expect(new_count).to eq old_count + 1
+        context 'when a user is logged in' do
+            before do
+                sign_in @admin_user
             end
-        end
 
-        context "with invalid attributes" do
-            it "should not create a new product" do
-                old_count = Product.count
-                post :create, params: {
-                    product: {
-                        description: "lorem ipsum",
-                        image_url: "bike.jpg",
-                        colour: "magenta",
-                        price: 500
+            context "with valid attributes" do
+                it "should create a new product" do
+                    old_count = Product.count
+                    post :create, params: {
+                        product: {
+                            name: "xyz",
+                            description: "lorem ipsum",
+                            image_url: "bike.jpg",
+                            colour: "magenta",
+                            price: 500
+                        }
                     }
-                }
-                new_count = Product.count
-                expect(new_count).to eq old_count
+                    new_count = Product.count
+                    expect(new_count).to eq old_count + 1
+                end
             end
-        end
+
+            context "with invalid attributes" do
+                it "should not create a new product" do
+                    old_count = Product.count
+                    post :create, params: {
+                        product: {
+                            description: "lorem ipsum",
+                            image_url: "bike.jpg",
+                            colour: "magenta",
+                            price: 500
+                        }
+                    }
+                    new_count = Product.count
+                    expect(new_count).to eq old_count
+                end
+            end
 
         end
     end
 
     describe "DELETE #destroy" do
-    context 'when a user is logged in' do
-        before do
-            sign_in @admin_user
-        end
+        context 'when a user is logged in' do
+            before do
+                sign_in @admin_user
+            end
 
-        it "should delete product" do
-            some_product = Product.create!(name:"XYZ Bicycle", description:"Lorem Ipsum", image_url:"bike.jpg", colour:"white", price: 0.00 )
-            delete :destroy, params: { id: some_product.id }
-        end
+            it "should delete product" do
+                some_product = Product.create!(name:"XYZ Bicycle", description:"Lorem Ipsum", image_url:"bike.jpg", colour:"white", price: 0.00 )
+                delete :destroy, params: { id: some_product.id }
+            end
         end
     end
 
     describe "PATCH #update" do
-    context 'when a user is logged in' do
-        before do
-            sign_in @admin_user
-        end
-
-        context "with valid attributes" do
-            it "should update the product" do
-                put :update, params: {
-                    id: product.id,
-                    product: {
-                        name: "xyz2"
-                    }
-                }
-                product.reload
-                expect(product.name).to eq "xyz2"
+        context 'when a user is logged in' do
+            before do
+                sign_in @admin_user
             end
-        end
+
+            context "with valid attributes" do
+                it "should update the product" do
+                    put :update, params: {
+                        id: product.id,
+                        product: {
+                            name: "xyz2"
+                        }
+                    }
+                    product.reload
+                    expect(product.name).to eq "xyz2"
+                end
+            end
 
         end
         context 'when a user is not logged in' do

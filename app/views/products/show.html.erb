@@ -44,10 +44,12 @@
       <%= will_paginate @comments %>
 
       </div>
-      <div class="btn btn-link">
+      <div class="btn">
         <p>
+        <% if can? :update, @post %>
           <%= link_to 'Edit', edit_product_path(@product) %> |
           <%= link_to 'Back', products_path %>
+        <% end %>
         </p>
       </div>  
     </div>

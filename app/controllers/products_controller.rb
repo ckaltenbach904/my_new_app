@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
     logger.info(@comments)
     @comments = @product.comments.paginate(page: params[:page], per_page: 3).order("created_at DESC")
     logger.error("THERE HAS BEEN AN ERROR!!11!")
-    # debugger
   end
 
   # GET /products/new

@@ -9,7 +9,7 @@
       <% cache product do %>
       <div class="col-sm product-item">
         <% if product.image_url %>
-          <%= image_tag(product.image_url, class: "img-fluid") %>
+          <%= link_to image_tag(product.image_url, class: "img-fluid"), product %>
         <% end %>
         <%= link_to product.name, product_path(product) %>
           <p><%= product.description %></p>
