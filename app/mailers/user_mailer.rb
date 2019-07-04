@@ -19,7 +19,7 @@ class UserMailer < ApplicationMailer
       @user = order.user
       @product = order.product
 
-      mail(to: user.email,
+      mail(to: @user.email,
           subject: "Thank you for your payment!"
       )
     end  
