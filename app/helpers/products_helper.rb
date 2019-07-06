@@ -6,6 +6,6 @@ module ProductsHelper
     end
 
     def cache_key_for_product
-        "products/#{@product.id}-#{@product.updated_at}-#{@product.comments.count}-#{signed_in?}"
+        "products/#{@product.id}-#{@product.updated_at}-#{@product.comments.count}-#{signed_in?}-#{params[:page]}-#{can? :update, @post}"
     end
 end

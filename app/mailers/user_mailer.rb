@@ -18,6 +18,7 @@ class UserMailer < ApplicationMailer
       @order = order
       @user = order.user
       @product = order.product
+      @appname = "Bike Berlin"
 
       mail(to: @user.email,
           subject: "Thank you for your payment!"

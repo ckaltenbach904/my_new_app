@@ -4,7 +4,10 @@
       <td><h2>Hello!</h2></td>
     </tr>
     <tr>
-      <td><p>Thank you for your payment! <%= @appname %>!</p></td>
+      <td><p>Thank you <%= @user.first_name %>! for purchasing the product <%= @product.name %></p></td>
+    </tr>
+    <tr>
+      <td><p><strong>We have received the total amount of €<%= @order.price_in_euros %> against your purchase.</p></td>
     </tr>
     <tr>
       <td><p><strong>Your <%= @appname %> Team!</strong></p></td>

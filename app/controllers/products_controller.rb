@@ -19,7 +19,11 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @view_count = $redis.incr("products_#{@product.id}_views")
+    if params[:page]
+      @view_count = $redis.get("products_#{@product.id}_views")
+    else
+      @view_count = $redis.incr("products_#{@product.id}_views")
+    end
     puts @view_count
     @comments = @product.comments.order("created_at DESC")
     logger.info(@comments)
