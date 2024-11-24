@@ -1,8 +1,5 @@
 # README
 
-
-This is a testing message to see if there will be changes on my git my_new_app!!
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
